@@ -20,16 +20,16 @@ def main(argv=None) -> int:
     parser.add_argument(
         'filenames', nargs='*', help='Filenames to run')
     parser.add_argument(
-        '--prohibit-strings', dest="prohibit_strings", type=str,
-        help='Prohibited strings', default="")
+        '--prohibit-string', dest="prohibit_strings", required=True,
+        type=str, help='Prohibited strings ("str1,str2,...")')
     args = parser.parse_args(argv)
-    prohibited_strings = args.prohibit_strings.replace(",", "|")
     retv = 0
-    for filename in args.filenames:
-        retv |= match(prohibited_strings, filename)
-
+    if args.prohibit_strings:
+        prohibited_strings = args.prohibit_strings.replace(",", "|")
+        for filename in args.filenames:
+            retv |= match(prohibited_strings, filename)
     return retv
 
 
 if __name__ == "__main__":
-    print(exit(main()))
+    exit(main())
