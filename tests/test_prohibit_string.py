@@ -1,5 +1,5 @@
-from inspect import cleandoc
 from io import StringIO
+from inspect import cleandoc
 from contextlib import redirect_stdout
 
 from pre_commit_hooks.prohibit_string import match
