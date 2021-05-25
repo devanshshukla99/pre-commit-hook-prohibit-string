@@ -3,3 +3,4 @@
   description: Prevents certain strings
   entry: prohibit-string
   language: python
+  files: ".*(.py)$"

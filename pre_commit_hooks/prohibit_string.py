@@ -1,5 +1,5 @@
-import argparse
 import re
+import argparse
 
 
 def match(prohibited_strings, filename):
@@ -9,9 +9,10 @@ def match(prohibited_strings, filename):
         contents = fd.read()
     if contents:
         for prohibit in prohibited_strings:
-            # print(prohibit)
-            if re.search(prohibit, contents):
-                print(prohibit)
+            regx = re.compile(prohibit, re.MULTILINE)
+            for match in regx.finditer(contents):
+                start_lineno = contents[0:match.start()].count("\n")
+                print(f"{filename}:{start_lineno}: Prohibited string ({prohibit})")
                 ret = 1
     return ret
 
@@ -19,20 +20,18 @@ def match(prohibited_strings, filename):
 def main(argv=None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
-        '--prohibit-strings', dest="prohibit_strings",
-        nargs='+', help='Prohibited strings', default=[])
-    parser.add_argument('filenames', nargs='*', help='Filenames to run')
+        'filenames', nargs='*', help='Filenames to run')
+    parser.add_argument(
+        '--prohibit-strings', dest="prohibit_strings", type=str,
+        help='Prohibited strings', default="")
     args = parser.parse_args(argv)
-
-    prohibited_strings = args.prohibit_strings
+    prohibited_strings = args.prohibit_strings.split(",")
     retv = 0
     for filename in args.filenames:
-        # print(filename)
-        retv += match(prohibited_strings, filename)
+        retv |= match(prohibited_strings, filename)
 
     return retv
 
 
-# if __name__ == "__main__":
-exit(main())
-# print(main())
+if __name__ == "__main__":
+    print(exit(main()))
