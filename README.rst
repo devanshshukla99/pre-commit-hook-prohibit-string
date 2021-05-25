@@ -4,7 +4,7 @@ Prohibit Strings
 
 |build|
 
-This package provides a ``pre-commit`` hook for prohibiting certain string.
+Provides a ``pre-commit`` hook for prohibiting/banning use of certain string in a package.
 
 Useage
 ------
