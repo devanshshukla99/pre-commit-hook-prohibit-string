@@ -9,7 +9,10 @@ def match(prohibited_strings, filename):
         contents = fd.read()
     if contents:
         for prohibit in prohibited_strings:
-            ret |= re.search(prohibit, contents)
+            # print(prohibit)
+            if re.search(prohibit, contents):
+                print(prohibit)
+                ret = 1
     return ret
 
 
@@ -22,11 +25,14 @@ def main(argv=None) -> int:
     args = parser.parse_args(argv)
 
     prohibited_strings = args.prohibit_strings
+    retv = 0
     for filename in args.filenames:
-        ret = match(prohibited_strings, filename)
+        # print(filename)
+        retv += match(prohibited_strings, filename)
 
-    return ret
+    return retv
 
 
-if __name__ == "__main__":
-    exit(main())
+# if __name__ == "__main__":
+exit(main())
+# print(main())

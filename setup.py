@@ -6,6 +6,6 @@ from setuptools import setup
 
 setup(
     use_scm_version={
-        'write_to': os.path.join('pytest_intercept_remote', '_version.py')
+        'write_to': os.path.join('pre_commit_hooks', '_version.py')
     }
 )

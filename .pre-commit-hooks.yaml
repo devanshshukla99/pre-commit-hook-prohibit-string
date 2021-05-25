@@ -1,0 +1,5 @@
+- id: prohibit-string
+  name: Check for prohibit strings
+  description: Prevents certain strings
+  entry: prohibit-string
+  language: python
