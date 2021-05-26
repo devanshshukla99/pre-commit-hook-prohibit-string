@@ -8,7 +8,7 @@ Provides a ``pre-commit`` hook for prohibiting a string in a package, for exampl
 prohibiting ``from warnings import warn`` may be useful.
 
 
-Useage
+Usage
 ------
 
 Add the following to ``.pre-commit-config.yaml``:
