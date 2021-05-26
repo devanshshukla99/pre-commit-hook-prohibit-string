@@ -15,7 +15,7 @@ def match(prohibited_string, filename):
     return ret
 
 
-def main(argv=None) -> int:
+def main(argv=None):
     parser = argparse.ArgumentParser()
     parser.add_argument(
         'filenames', nargs='*', help='Filenames to run')
