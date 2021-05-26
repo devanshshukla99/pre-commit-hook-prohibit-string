@@ -1,6 +1,6 @@
 - id: prohibit-string
   name: Check for prohibited strings
-  description: Prevents use of certain strings in the package.
+  description: Prevents use of certain strings in a package.
   entry: prohibit-string
   language: python
   files: ".*(.py)$"

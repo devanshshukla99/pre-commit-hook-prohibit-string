@@ -9,7 +9,7 @@ def match(prohibited_string, filename):
         if contents:
             regx = re.compile(prohibited_string, re.MULTILINE)
             for match in regx.finditer(contents):
-                start_lineno = contents[0:match.start()].count("\n")
+                start_lineno = contents[0:match.start()].count("\n") + 1
                 print(f"{filename}:{start_lineno}: Prohibited string ({match.group()})")
                 ret = 1
     return ret
