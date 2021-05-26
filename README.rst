@@ -1,10 +1,12 @@
-===============================
-pre-commit-hook-prohibit-string
-===============================
+===============
+Prohibit String
+===============
 
 |build|
 
-This package provides a ``pre-commit`` hook for prohibiting certain string.
+Provides a ``pre-commit`` hook for prohibiting a string in a package, for example,
+prohibiting ``from warnings import warn`` may be useful.
+
 
 Useage
 ------
