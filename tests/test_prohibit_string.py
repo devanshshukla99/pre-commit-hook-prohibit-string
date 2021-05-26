@@ -21,7 +21,7 @@ def test_match_func(tmp_path):
         result = match("import warnings", test_file)
         out = str(buf.getvalue())
         assert result == 1
-        assert out.endswith('check_prohibit.py:2: Prohibited string (import warnings)\n') is True
+        assert out.endswith('check_prohibit.py:3: Prohibited string (import warnings)\n') is True
 
 
 def test_main_func(tmp_path):
@@ -41,4 +41,4 @@ def test_main_func(tmp_path):
         result = main([f"{test_file}", "--prohibit-string", "import warnings"])
         assert result == 1
         out = str(buf.getvalue())
-        assert out.endswith('check_prohibit.py:2: Prohibited string (import warnings)\n') is True
+        assert out.endswith('check_prohibit.py:3: Prohibited string (import warnings)\n') is True
