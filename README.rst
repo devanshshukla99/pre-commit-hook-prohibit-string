@@ -2,7 +2,7 @@
 Prohibit String
 ===============
 
-|build|
+|build| |codestyle|
 
 Provides a ``pre-commit`` hook for prohibiting a string in a package, for example,
 prohibiting ``from warnings import warn`` may be useful.
@@ -34,3 +34,6 @@ Example to forbid ``from warnings import warn`` and ``warnings.warn``:
 
 
 .. |build| image:: https://github.com/devanshshukla99/pre-commit-hook-prohibit-string/actions/workflows/main.yml/badge.svg
+
+.. |codestyle| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+   :target: https://github.com/psf/black

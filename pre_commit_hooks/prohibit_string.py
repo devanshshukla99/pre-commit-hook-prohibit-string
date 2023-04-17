@@ -9,7 +9,7 @@ def match(prohibited_string, filename):
         if contents:
             regx = re.compile(prohibited_string, re.MULTILINE)
             for match in regx.finditer(contents):
-                start_lineno = contents[0:match.start()].count("\n") + 1
+                start_lineno = contents[0 : match.start()].count("\n") + 1
                 print(f"{filename}:{start_lineno}: Prohibited string ({match.group()})")
                 ret = 1
     return ret
@@ -17,11 +17,13 @@ def match(prohibited_string, filename):
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
+    parser.add_argument("filenames", nargs="*", help="Filenames to run")
     parser.add_argument(
-        'filenames', nargs='*', help='Filenames to run')
-    parser.add_argument(
-        '--prohibit-string', dest="prohibit_string", type=str,
-        help='Prohibited strings ("str1,str2,...")')
+        "--prohibit-string",
+        dest="prohibit_string",
+        type=str,
+        help='Prohibited strings ("str1,str2,...")',
+    )
     args = parser.parse_args(argv)
     retv = 0
     if args.prohibit_string:
